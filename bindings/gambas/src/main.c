@@ -23,12 +23,11 @@
 
 #define __MAIN_C
 
-#include "CDwgDocument.h"
+#include "c_dwg.h"
 #include "main.h"
 
 #include <stdio.h>
-
-#include <GlobalParams.h>
+//#include <GlobalParams.h>
 
 extern "C" {
 
@@ -52,6 +51,7 @@ GB_DESC *GB_CLASSES[] EXPORT =
 
 int EXPORT GB_INIT(void)
 {
+  /*
 	if (!globalParams)
 	{
 #if POPPLER_VERSION_0_83
@@ -60,13 +60,10 @@ int EXPORT GB_INIT(void)
 		globalParams = new GlobalParams();
 #endif
 	}
-
+  */
 	//GB.GetInterface("gb.image", IMAGE_INTERFACE_VERSION, &IMAGE);
-	
-	return 0;
+        return 0;
 }
-
-
 
 void EXPORT GB_EXIT()
 {

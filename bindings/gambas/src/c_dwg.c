@@ -1,6 +1,6 @@
 /***************************************************************************
 
-  CDwgDocument.cpp
+  c_dwg.c
 
   (C) 2020 Reini Urban <rurban@cpan.org>
 
@@ -21,9 +21,9 @@
 
 ***************************************************************************/
 
-#define __CDWGDOCUMENT_C
+#define __CDWG_C
 
-#include "CDwgDocument.h"
+#include "c_dwg.h"
 
 #include "gambas.h"
 #include "main.h"
@@ -1313,7 +1313,7 @@ GB_DESC DwgDocumentDesc[] =
 {
   GB_DECLARE("DwgDocument", sizeof(CDWGDOCUMENT)),
 
-  // Versions:
+  // Versions
   GB_CONSTANT("R_INVALID","i", R_INVALID),
   GB_CONSTANT("R_1_1","i", R_1_1),	/* MC0.0  MicroCAD Release 1.1 */
   GB_CONSTANT("R_1_2","i", R_1_2),	/* AC1.2  AutoCAD Release 1.2 */

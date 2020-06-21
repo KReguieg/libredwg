@@ -1,6 +1,6 @@
 /***************************************************************************
 
-  CDwgDocument.h
+  c_dwg.h
 
   (C) 2020 Reini Urban <rurban@cpan.org>
 
@@ -21,42 +21,16 @@
 
 ***************************************************************************/
 
-#ifndef __CDWGDOCUMENT_H
-#define __CDWGDOCUMENT_H
+#ifndef __CDWG_H
+#define __CDWG_H
 
 #include "gambas.h"
 
 #include <stdint.h>
 #include <dwg.h>
 #include <dwg_api.h>
-//#include <SplashOutputDev.h>
-//#include <Page.h>
-//#if POPPLER_VERSION_0_76
-//#include <vector>
-//#include <Outline.h>
-//#else
-//#include <goo/GooList.h>
-//#endif
 
-#if LIBREDWG_VERSION_0_76
-	#define const_LinkAction const LinkAction
-	#define const_LinkDest const LinkDest
-	#define const_GooList const std::vector<OutlineItem*>
-	#define GooList std::vector<OutlineItem*>
-	#define const_GooString const GooString
-#elif LIBREDWG_VERSION_0_64
-	#define const_LinkAction const LinkAction
-	#define const_LinkDest const LinkDest
-	#define const_GooList const GooList
-	#define const_GooString const GooString
-#else
-	#define const_LinkAction LinkAction
-	#define const_LinkDest LinkDest
-	#define const_GooList GooList
-	#define const_GooString GooString
-#endif
-
-#ifndef __CDWGDOCUMENT_C
+#ifndef __CDWG_C
 
 extern GB_DESC DxfDocumentDesc[];
 extern GB_DESC DwgDocumentDesc[];
@@ -64,7 +38,7 @@ extern GB_DESC DwgDocumentDesc[];
 #else
 
 #define THIS ((CDWGDOCUMENT *)_object)
-#//define THIS_RECT ((CDWGRECT *)_object)
+#define THIS_DXF ((CDXFDOCUMENT *)_object)
 
 #endif
 
@@ -86,12 +60,11 @@ extern GB_DESC DwgDocumentDesc[];
 typedef
 	struct {
 		GB_BASE ob;
-
 		char *buf;
 		int len;
-
 		Dwg_Data *data;
 		Bit_Chain *stream;
+		bool is_dxf;
 	}
 	CDWGDOCUMENT;
 
