@@ -20,6 +20,7 @@
  * modified by Denis Pruchkovsky
  */
 
+#define DWG_SPEC
 #include "spec.h"
 
 /* (1/7) */
@@ -7539,7 +7540,7 @@ DWG_OBJECT_END
     FIELD_BD (color.factor, dxf2);   /* 0.0 - 1.0 */                          \
     if (_obj->color.flag == 1)                                                \
       {                                                                       \
-        FIELD_BLx (color.rgb, dxf3);                                           \
+        FIELD_BLx (color.rgb, dxf3);                                          \
       }                                                                       \
   }
 
